@@ -1,0 +1,62 @@
+<?php
+/**
+ * Sticky Postbox plugin for WordPress.
+ *
+ * @package sticky-postbox
+ *
+ * Plugin Name: Sticky Postbox
+ * Plugin URI:  https://github.com/enrico-sorcinelli/sticky-postbox
+ * Description: A WordPress plugin that allow to stick administration postboxes.
+ * Author:      Enrico Sorcinelli
+ * Author URI:  https://github.com/enrico-sorcinelli/sticky-postbox/graphs/contributors
+ * Text Domain: sticky-postbox
+ * Domain Path: /languages/
+ * Version:     1.0.0
+ * License:     GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+// Check running WordPress instance.
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'HTTP/1.1 404 Not Found' );
+	exit();
+}
+
+// Plugins constants.
+define( 'STICKY_POSTBOX_VERSION', '1.0.0' );
+define( 'STICKY_POSTBOX_BASEDIR', dirname( __FILE__ ) );
+define( 'STICKY_POSTBOX_BASEURL', plugin_dir_url( __FILE__ ) );
+
+// Enable debug prints on error_log (only when WP_DEBUG is true).
+if ( ! defined( 'STICKY_POSTBOX_DEBUG' ) ) {
+	define( 'STICKY_POSTBOX_DEBUG', false );
+}
+
+if ( ! class_exists( 'Sticky_Postbox' ) ) {
+
+	require_once STICKY_POSTBOX_BASEDIR . '/php/class-sticky-postbox.php';
+
+	/**
+	 * Init the plugin.
+	 *
+	 * Define STICKY_POSTBOX_AUTOENABLE to `false` in your wp-config.php to disable.
+	 */
+	function sticky_postbox_init() {
+
+		if ( defined( 'STICKY_POSTBOX_AUTOENABLE' ) && false === STICKY_POSTBOX_AUTOENABLE ) {
+			return;
+		}
+
+		// Instantiate our plugin class and add it to the set of globals.
+		// Create plugin instance object only under administration interface.
+		if ( is_admin() || is_network_admin() ) {
+			$GLOBALS['sticky_postbox'] = \Sticky_Postbox::get_instance( array( 'debug' => STICKY_POSTBOX_DEBUG && WP_DEBUG ) );
+		}
+	}
+
+	// Activate the plugin once all plugin have been loaded.
+	add_action( 'plugins_loaded', 'sticky_postbox_init' );
+
+	// Activation/Deactivation hooks.
+	register_uninstall_hook( __FILE__, array( 'Sticky_Postbox', 'plugin_uninstall' ) );
+}

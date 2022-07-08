@@ -1,0 +1,41 @@
+/* Sticky Postbox */
+span.sticky-postbox-icon-sticky {
+	float: right;
+	display: block;
+	vertical-align: bottom;
+	cursor: pointer;
+	margin-top: 8px;
+	color: #72777c;
+}
+
+/* WP > 5.x */
+.postbox-header span.sticky-postbox-icon-sticky {
+	margin: 6px 3px 0 0;
+}
+
+span.sticky-postbox-icon-sticky:before {
+	font-size: 16px;
+	content: "\f109";
+}
+
+.sticky-postbox-sticky span.sticky-postbox-icon-sticky:before {
+	content: "\f537";
+}
+
+.sticky-postbox-sticky {
+	position: fixed !important;
+	top: 62px;
+	z-index: 1000;
+	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8) !important;
+	right: 5px;
+	width: 300px;
+	max-height: 600px;
+	overflow: auto;
+}
+
+.sticky-postbox-sticky h2.sticky-postbox-hndle-compat {
+	font-size: 14px;
+	padding: 8px 12px;
+	margin: 0;
+	line-height: 1.4;
+}
