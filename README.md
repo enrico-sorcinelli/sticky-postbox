@@ -49,7 +49,7 @@ Define to `false` to disable (you will have to init it manually).
 
 ### Does it work with Gutenberg? ###
 
-Yes?
+This plugin is intended to work with postboxes in Classic Editor and  Dashboard
 
 ### Does it work with multisite installation? ###
 
@@ -57,11 +57,8 @@ Yes?
 
 ## Screenshots ##
 
-### 1. First screenshot. ###
-![First screenshot.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/develop/assets/screenshot-1.png)
-
-### 2. Second screenshot. ###
-![Second screenshot.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/develop/assets/screenshot-2.png)
+### 1. Sticky postboxes. ###
+![Sticky postboxes.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/master/assets-wp/screenshot-1.png)
 
 
 ## Changelog ##
