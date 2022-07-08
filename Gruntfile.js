@@ -315,7 +315,7 @@ module.exports = function( grunt ) {
 					'README.md': 'readme.txt'
 				},
 				options: {
-					screenshot_url: 'https://raw.githubusercontent.com/enrico-sorcinelli/{plugin}/develop/assets/{screenshot}.png' // eslint-disable-line camelcase
+					screenshot_url: 'https://raw.githubusercontent.com/enrico-sorcinelli/{plugin}/master/assets-wp/{screenshot}.png' // eslint-disable-line camelcase
 				}
 			}
 		},
