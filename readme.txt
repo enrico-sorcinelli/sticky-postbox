@@ -49,7 +49,7 @@ Define to `false` to disable (you will have to init it manually).
 
 = Does it work with Gutenberg? =
 
-Yes?
+This plugin is intended to work with postboxes in Classic Editor and  Dashboard
 
 = Does it work with multisite installation? =
 
@@ -57,8 +57,7 @@ Yes?
 
 == Screenshots ==
 
-1. First screenshot.
-2. Second screenshot.
+1. Sticky postboxes.
 
 == Changelog ==
 
