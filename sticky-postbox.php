@@ -6,7 +6,7 @@
  *
  * Plugin Name: Sticky Postbox
  * Plugin URI:  https://github.com/enrico-sorcinelli/sticky-postbox
- * Description: A WordPress plugin that allow to stick administration postboxes.
+ * Description: A WordPress plugin that allow to sticky administration postboxes.
  * Author:      Enrico Sorcinelli
  * Author URI:  https://github.com/enrico-sorcinelli/sticky-postbox/graphs/contributors
  * Text Domain: sticky-postbox
