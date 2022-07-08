@@ -360,7 +360,6 @@ module.exports = function( grunt ) {
 	]);
 
 	grunt.registerTask( 'check', [
-		//'phpcs',
 		'jshint',
 		'eslint',
 		'stylelint',
@@ -384,7 +383,7 @@ module.exports = function( grunt ) {
 		'readme',
 		'clean',
 		'copy',
-		//'lineending',
+		'lineending',
 		'compress'
 	]);
 
