@@ -24,7 +24,7 @@ span.sticky-postbox-icon-sticky:before {
 
 .sticky-postbox-sticky {
 	position: fixed !important;
-	top: 62px;
+	top: 63px;
 	z-index: 1000;
 	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8) !important;
 	right: 5px;
@@ -38,4 +38,8 @@ span.sticky-postbox-icon-sticky:before {
 	padding: 8px 12px;
 	margin: 0;
 	line-height: 1.4;
+}
+
+.sticky-postbox-screen-meta {
+	z-index: 1001;
 }
