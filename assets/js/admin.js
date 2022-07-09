@@ -1,7 +1,7 @@
 /**
- * @file This file contains Sticky Postnox JavaScript
+ * @file This file contains Sticky Postbox JavaScript
  * @author Enrico Sorcinelli
- * @version 1.0.0
+ * @version 1.1.0
  * @title Sticky Postbox
  */
 
@@ -22,7 +22,10 @@
 			}, args );
 
 			var toggle_sticky = function( element ) {
-				$( element ).closest( '.postbox' ).toggleClass( 'sticky-postbox-sticky' );
+
+				var $postbox = $( element ).closest( '.postbox' );
+
+				$postbox.toggleClass( 'sticky-postbox-sticky' );
 
 				// Turn on/off sortable.
 				$( element ).siblings( 'h2' ).toggleClass( 'hndle' );
@@ -35,6 +38,13 @@
 
 				// Toogle order buttons visibility.
 				$( element ).siblings( 'button.handle-order-higher, button.handle-order-lower' ).toggle();
+
+				// Put screen-meta info over sticky postbox.
+				if ( $postbox.hasClass( 'sticky-postbox-sticky' ) ) {
+					$( '#screen-meta, .screen-meta-toggle' ).addClass( 'sticky-postbox-screen-meta' );
+				} else {
+					$( '#screen-meta, .screen-meta-toggle' ).removeClass( 'sticky-postbox-screen-meta' );
+				}
 			};
 
 			// Add sticky icon.
