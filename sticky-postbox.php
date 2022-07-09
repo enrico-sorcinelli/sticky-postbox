@@ -11,7 +11,7 @@
  * Author URI:  https://github.com/enrico-sorcinelli/sticky-postbox/graphs/contributors
  * Text Domain: sticky-postbox
  * Domain Path: /languages/
- * Version:     1.0.0
+ * Version:     1.1.0
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugins constants.
-define( 'STICKY_POSTBOX_VERSION', '1.0.0' );
+define( 'STICKY_POSTBOX_VERSION', '1.1.0' );
 define( 'STICKY_POSTBOX_BASEDIR', dirname( __FILE__ ) );
 define( 'STICKY_POSTBOX_BASEURL', plugin_dir_url( __FILE__ ) );
 
