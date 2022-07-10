@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.2.0] - 2022-07-10
 ### Added 
- - `STICKY_POSTBOX_GLOBAL_OPTIONS constant`.
+ - `STICKY_POSTBOX_GLOBAL_OPTIONS` constant.
  - Handled meta boxes on network Dashboard.
 
 ### Changed
