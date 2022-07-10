@@ -11,7 +11,7 @@
  * Author URI:  https://github.com/enrico-sorcinelli/sticky-postbox/graphs/contributors
  * Text Domain: sticky-postbox
  * Domain Path: /languages/
- * Version:     1.1.0
+ * Version:     1.2.0
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -23,13 +23,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugins constants.
-define( 'STICKY_POSTBOX_VERSION', '1.1.0' );
+define( 'STICKY_POSTBOX_VERSION', '1.2.0' );
 define( 'STICKY_POSTBOX_BASEDIR', dirname( __FILE__ ) );
 define( 'STICKY_POSTBOX_BASEURL', plugin_dir_url( __FILE__ ) );
 
-// Enable debug prints on error_log (only when WP_DEBUG is true).
-if ( ! defined( 'STICKY_POSTBOX_DEBUG' ) ) {
-	define( 'STICKY_POSTBOX_DEBUG', false );
+// Default values.
+foreach( array( 'STICKY_POSTBOX_DEBUG', 'STICKY_POSTBOX_GLOBAL_OPTIONS' ) as $key ) {
+	if ( ! defined( $key ) ) {
+		define( $key, false );
+	}
 }
 
 if ( ! class_exists( 'Sticky_Postbox' ) ) {
@@ -50,7 +52,12 @@ if ( ! class_exists( 'Sticky_Postbox' ) ) {
 		// Instantiate our plugin class and add it to the set of globals.
 		// Create plugin instance object only under administration interface.
 		if ( is_admin() || is_network_admin() ) {
-			$GLOBALS['sticky_postbox'] = \Sticky_Postbox::get_instance( array( 'debug' => STICKY_POSTBOX_DEBUG && WP_DEBUG ) );
+			$GLOBALS['sticky_postbox'] = \Sticky_Postbox::get_instance( 
+				array( 
+					'debug'          => STICKY_POSTBOX_DEBUG && WP_DEBUG,
+					'global_options' => STICKY_POSTBOX_GLOBAL_OPTIONS,
+				)
+			);
 		}
 	}
 
