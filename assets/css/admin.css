@@ -40,6 +40,10 @@ span.sticky-postbox-icon-sticky:before {
 	line-height: 1.4;
 }
 
+.sticky-postbox-sticky h2.sticky-postbox-hndle-compat-border {
+	border-bottom: 1px solid #eee;
+}
+
 .sticky-postbox-screen-meta {
 	z-index: 1001;
 }
