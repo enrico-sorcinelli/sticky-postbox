@@ -1,19 +1,21 @@
 # Sticky Postbox #
 **Contributors:** Enrico Sorcinelli  
-**Tags:** Administration, Dashboard, Options, Sticky, Post, Classic Editor  
+**Tags:** Administration, Dashboard, Options, Sticky, Post, Classic Editor, meta box  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.2.4  
 **Tested up to:** 6.0  
-**Stable tag:** 1.1.0  
+**Stable tag:** 1.2.0  
 **License:** GPLv2 or later  
 
-Add sticky feature to admin postboxes.
+Add sticky feature to admininstration meta boxes.
 
 ## Description ##
 
-**Sticky Postbox** was created a few years ago as a POC to learn how  WordPress save/restore postboxes's availables preferences (closed, hidden, sortings, etc).
-This very lightweight plugin add the _sticky_ feature to administration postboxes allowing them to be sticky at top right corner of the browser window.
-Only one postbox can be sticky at once, so a new sticky postbox unstick the current one (if there is one).
+**Sticky Postbox** is a piece of code created a few years ago as exercise to learn how  WordPress save/restore administration meta boxes's availables statuses (closed, hidden, sortings, etc).
+
+This very lightweight plugin add the _sticky_ feature to administration meta boxes allowing them to be sticky at top right corner of the browser window.
+
+Only one meta box can be sticky at once, so a new sticky meta box unstick the current one (if there is one).
 
 ## Basic Features ##
 
@@ -29,7 +31,7 @@ This section describes how to install the plugin and get it working.
 
 ## Usage ##
 
-Once the plugin is installed and activated you can sticky postboxes using icon
+Once the plugin is installed and activated you can sticky administration meta boxes using sticky icon (it appears on the top right corner of each box).
 
 ## API ##
 
@@ -37,18 +39,29 @@ Once the plugin is installed and activated you can sticky postboxes using icon
 
 You can use define following constants in your _wp-config.php_ file.
 
-`STICKY_POSTBOX_DEBUG`
+**`STICKY_POSTBOX_DEBUG`**
 
-Turn on debug messages.
+Turn on debug messages (also `WP_DEBUG` has to `true`).
+Default to `false`.
 
-`STICKY_POSTBOX_AUTOENABLE`
+**`STICKY_POSTBOX_GLOBAL_OPTIONS`**
+
+Shares user's sticky meta boxes settings across all his sites. For example, if you sticky *Publish* box in editing Pages in a specific site, it will be sticky on all Pages of all sites).
+Default to `false`.
+
+**`STICKY_POSTBOX_AUTOENABLE`**
 
 By default if the plugin has been activated, it starts automatically. 
 Define to `false` if you want to init it manually, for example:
 
-	// Activate the plugin once all plugin have been loaded.
+	// Activate manually the plugin once all plugin have been loaded.
 	add_action( 'plugins_loaded', function() {
-		\Sticky_Postbox::get_instance( array( 'debug' => WP_DEBUG ) );
+		\Sticky_Postbox::get_instance( 
+			array(
+				'debug'          => WP_DEBUG,
+				'global_options' => false,
+			)
+		);
 	};
 
 ### Hooks ###
@@ -59,7 +72,7 @@ Currently the plugin doesn't have actions or filters.
 
 ### Does it work with Gutenberg? ###
 
-This plugin is intended to work with Classic Editor and Dashboard postboxes.
+This plugin is intended to work with Classic Editor and Dashboards meta boxes.
 
 ### Does it work with multisite installation? ###
 
@@ -67,11 +80,11 @@ Yes?
 
 ## Screenshots ##
 
-### 1. Sticky postboxes in classic edit post. ###
-![Sticky postboxes in classic edit post.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/master/assets-wp/screenshot-1.png)
+### 1. Sticky meta box in classic edit post. ###
+![Sticky meta box in classic edit post.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/master/assets-wp/screenshot-1.png)
 
-### 2. Sticky postboxes in Dashboard. ###
-![Sticky postboxes in Dashboard.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/master/assets-wp/screenshot-2.png)
+### 2. Sticky meta box in Dashboard. ###
+![Sticky meta box in Dashboard.](https://raw.githubusercontent.com/enrico-sorcinelli/sticky-postbox/master/assets-wp/screenshot-2.png)
 
 
 ## Changelog ##
