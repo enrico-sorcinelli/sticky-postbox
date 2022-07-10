@@ -31,10 +31,12 @@
 				$( element ).siblings( 'h2' ).toggleClass( 'hndle' );
 				$( element ).parent().siblings( 'h2' ).toggleClass( 'hndle' );
 
-				if ( 'dashboard' === pagenow ) {
+				// Add compatibility CSS.
+				if ( /^dashboard(-network)?$/.test( pagenow ) ) {
 					$( element ).siblings( 'h2' ).toggleClass( 'sticky-postbox-hndle-compat' );
 					$( element ).parent().siblings( 'h2' ).toggleClass( 'sticky-postbox-hndle-compat' );
 				}
+				$( element ).siblings( 'h2' ).toggleClass( 'sticky-postbox-hndle-compat-border' );
 
 				// Toogle order buttons visibility.
 				$( element ).siblings( 'button.handle-order-higher, button.handle-order-lower' ).toggle();
@@ -77,7 +79,8 @@
 						action: 'sticky_postbox_sticky_postboxes',
 						page: typenow || pagenow,
 						_ajax_nonce_sticky_postbox_sticky_postboxes: sticky_postbox_i18n.nonces.sticky_postboxes,
-						sticky: sticky_postboxes
+						sticky: sticky_postboxes,
+						is_network_admin: sticky_postbox_i18n.is_network_admin
 					}
 				});
 
