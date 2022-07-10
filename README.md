@@ -11,7 +11,7 @@ Add sticky feature to admininstration meta boxes.
 
 ## Description ##
 
-**Sticky Postbox** is a piece of code created a few years ago as exercise to learn how  WordPress save/restore administration meta boxes's availables statuses (closed, hidden, sortings, etc).
+**Sticky Postbox** is a piece of code wrote few years ago as exercise to learn how WordPress handles administration meta boxes's availables statuses (closed, hidden and sortings).
 
 This very lightweight plugin add the _sticky_ feature to administration meta boxes allowing them to be sticky at top right corner of the browser window.
 
