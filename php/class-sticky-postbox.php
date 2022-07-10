@@ -51,7 +51,8 @@ class Sticky_Postbox {
 		$this->settings = wp_parse_args(
 			$args,
 			array(
-				'debug' => false,
+				'debug'          => false,
+				'global_options' => false,
 			)
 		);
 
@@ -120,10 +121,18 @@ class Sticky_Postbox {
 
 		list( $current_post, $post_type ) = self::get_current_post_and_post_type();
 
+		$user_id = get_current_user_id();
+
 		// Sticky postboxes handling.
 		if ( preg_match( '/^(index|post(-new)?)\.php$/', $pagenow ) ) {
-			$page             = preg_match( '/^index.php$/', $pagenow ) ? 'dashboard' : $post_type;
-			$sticky_postboxes = get_user_option( 'sticky_postbox_sticky_postboxes_' . $page );
+
+			$page = preg_match( '/^index.php$/', $pagenow )
+				? ( 'dashboard' . ( is_network_admin() ? '-network' : '' ) )
+				: $post_type;
+
+			$sticky_postboxes = is_network_admin() && false === $this->settings['global_options'] ?
+				get_user_meta( $user_id, 'sticky_postbox_sticky_postboxes_' . $page, true )
+				: get_user_option( 'sticky_postbox_sticky_postboxes_' . $page, $user_id );
 		}
 
 		if ( empty( $sticky_postboxes ) ) {
@@ -148,6 +157,7 @@ class Sticky_Postbox {
 				),
 				'sticky_postboxes' => $sticky_postboxes,
 				'msgs'             => array(),
+				'is_network_admin' => (bool) is_network_admin(),
 			)
 		);
 	}
@@ -163,8 +173,9 @@ class Sticky_Postbox {
 		$args = wp_parse_args(
 			$_REQUEST,
 			array(
-				'sticky' => array(),
-				'page'   => '',
+				'sticky'           => array(),
+				'page'             => '',
+				'is_network_admin' => false,
 			)
 		);
 
@@ -178,7 +189,12 @@ class Sticky_Postbox {
 
 		// Update status.
 		if ( is_array( $args['sticky'] ) ) {
-			$ret = update_user_option( $user->ID, 'sticky_postbox_sticky_postboxes_' . $args['page'], $args['sticky'], true );
+			$ret = update_user_option(
+				$user->ID,
+				'sticky_postbox_sticky_postboxes_' . $args['page'],
+				$args['sticky'],
+				false === $this->settings['global_options'] && empty( $args['is_network_admin'] ) ? false : true
+			);
 			$this->log( $user->ID, $args, $ret );
 		}
 		wp_die( 1 );
