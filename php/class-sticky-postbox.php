@@ -213,7 +213,7 @@ class Sticky_Postbox {
 
 		// Try to get current post if it isn't yet defined.
 		if ( ! ( $current_post instanceof \WP_Post ) && ( isset( $_REQUEST['post'] ) || isset( $_REQUEST['post_ID'] ) ) ) {
-			$current_post = get_post( isset( $_REQUEST['post'] ) ? $_REQUEST['post'] : $_REQUEST['post_ID'] );
+			$current_post = get_post( isset( $_REQUEST['post'] ) ? sanitize_text_field( $_REQUEST['post'] ) : sanitize_text_field( $_REQUEST['post_ID'] ) );
 		}
 
 		// Set post type.
@@ -221,7 +221,7 @@ class Sticky_Postbox {
 			$post_type = $current_post->post_type;
 		}
 		elseif ( isset( $_REQUEST['post_type'] ) ) {
-			$post_type = $_REQUEST['post_type'];
+			$post_type = sanitize_text_field( $_REQUEST['post_type'] );
 		}
 
 		return array( $current_post, $post_type );
