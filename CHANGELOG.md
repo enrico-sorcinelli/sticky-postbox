@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0] - 2022-07-12
+### Changed
+ - Documentation improvements.
+
+### Fixed
+ - Input sanitization.
+
 ## [1.2.0] - 2022-07-10
 ### Added 
  - `STICKY_POSTBOX_GLOBAL_OPTIONS` constant.
