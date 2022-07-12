@@ -4,16 +4,16 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.2.4  
 **Tested up to:** 6.0  
-**Stable tag:** 1.2.0  
+**Stable tag:** 1.3.0  
 **License:** GPLv2 or later  
 
 Add sticky feature to admininstration meta boxes.
 
 ## Description ##
 
-**Sticky Postbox** is a piece of code wrote few years ago as exercise to learn how WordPress handles administration meta boxes's availables statuses (closed, hidden and sortings).
+**Sticky Postbox** is a piece of code written few years ago as exercise to learn how WordPress handles administration meta boxes's availables statuses (closed, hidden and sortings).
 
-This very lightweight plugin add the _sticky_ feature to administration meta boxes allowing them to be sticky at top right corner of the browser window.
+This very lightweight plugin adds the _sticky_ feature to administration meta boxes allowing them to be sticky at top right corner of the browser window.
 
 Only one meta box can be sticky at once, so a new sticky meta box unstick the current one (if there is one).
 
@@ -41,7 +41,7 @@ You can use define following constants in your _wp-config.php_ file.
 
 **`STICKY_POSTBOX_DEBUG`**
 
-Turn on debug messages (also `WP_DEBUG` has to `true`).
+Turn on debug messages (also `WP_DEBUG` has to be `true`).
 Default to `false`.
 
 **`STICKY_POSTBOX_GLOBAL_OPTIONS`**
