@@ -76,7 +76,7 @@ This plugin is intended to work with Classic Editor and Dashboards meta boxes.
 
 ### Does it work with multisite installation? ###
 
-Yes?
+Yes
 
 ## Screenshots ##
 
