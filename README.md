@@ -46,7 +46,7 @@ Default to `false`.
 
 **`STICKY_POSTBOX_GLOBAL_OPTIONS`**
 
-Shares user's sticky meta boxes settings across all his sites. For example, if you sticky *Publish* box in editing Pages in a specific site, it will be sticky on all Pages of all sites).
+In a Multisite installation, allows to shares user's sticky meta boxes settings across all his sites. For example, if you sticky *Publish* box in editing Pages in a specific site, it will be sticky on all Pages of all sites.
 Default to `false`.
 
 **`STICKY_POSTBOX_AUTOENABLE`**
