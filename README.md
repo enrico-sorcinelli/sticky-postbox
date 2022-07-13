@@ -7,7 +7,7 @@
 **Stable tag:** 1.3.0  
 **License:** GPLv2 or later  
 
-Add sticky feature to admininstration meta boxes.
+Add sticky feature to administration meta boxes.
 
 ## Description ##
 
@@ -62,7 +62,7 @@ Define to `false` if you want to init it manually, for example:
 				'global_options' => false,
 			)
 		);
-	};
+	} );
 
 ### Hooks ###
 
